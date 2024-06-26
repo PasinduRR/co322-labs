@@ -102,6 +102,10 @@ public class Sort {
             value = data[i];
             position = i;
 
+            if (isSorted(data)) {
+                break;
+            }
+
             while (position > 0 && data[position-1] > value) {
                 swap(data, position, position-1);
                 position -= 1;
@@ -115,20 +119,183 @@ public class Sort {
         // sort the array.
         // Think about effects of caches, other apps running etc.
 
-        int size = 20;
+        // int size = 1000;
 
-        int [] dataSet = create_rand_data(size);
+        int [] dataSet10 = create_rand_data(10);
+        int [] dataSet100 = create_rand_data(100);
+        int [] dataSet1000 = create_rand_data(1000);
+        int [] dataSet10000 = create_rand_data(10000);
         int [] dataSetNew = {0,  80,  66,  22,  64,  6,  50,  3,  32,  20,  63,  60,  13,0,22,-1};
-        int [] bestDataSet = create_best_data(size);
-        int [] worstDataSet = create_worst_data(size);
+        int [] bestDataSet = create_best_data(100);
+        int [] worstDataSet = create_worst_data(100);
 
-        display(dataSet);
-        long startTime = System.currentTimeMillis();
-        insertion_sort(dataSet);
-        long endTime = System.currentTimeMillis();
-        long runTime = endTime - startTime;
-        display(dataSet);
-        System.out.println("Runtime in Selection Sort: " +runTime +" ms");
+        // // display(dataSet10);
+        // long startTime = System.nanoTime();
+        // bubble_sort(dataSet10);
+        // long endTime = System.nanoTime();
+        // long runTime = endTime - startTime;
+        // // display(dataSet10);
+        // System.out.println("Runtime with 10 data: " +runTime +" ns\n");
         
+        // // display(dataSet100);
+        // startTime = System.nanoTime();
+        // bubble_sort(dataSet100);
+        // endTime = System.nanoTime();
+        // runTime = endTime - startTime;
+        // // display(dataSet100);
+        // System.out.println("Runtime with 100 data: " +runTime +" ns\n");
+
+        // // display(dataSet1000);
+        // startTime = System.nanoTime();
+        // bubble_sort(dataSet1000);
+        // endTime = System.nanoTime();
+        // runTime = endTime - startTime;
+        // // display(dataSet1000);
+        // System.out.println("Runtime with 1000 data: " +runTime +" ns\n");
+
+        // // display(dataSet10000);
+        // startTime = System.nanoTime();
+        // bubble_sort(dataSet10000);
+        // endTime = System.nanoTime();
+        // runTime = endTime - startTime;
+        // // display(dataSet10000);
+        // System.out.println("Runtime with 10000 data: " +runTime +" ns\n");
+
+        // // display(dataSet10);
+        // long startTime = System.nanoTime();
+        // selection_sort(dataSet10);
+        // long endTime = System.nanoTime();
+        // long runTime = endTime - startTime;
+        // // display(dataSet10);
+        // System.out.println("Runtime with 10 data: " +runTime +" ns\n");
+        
+        // // display(dataSet100);
+        // startTime = System.nanoTime();
+        // selection_sort(dataSet100);
+        // endTime = System.nanoTime();
+        // runTime = endTime - startTime;
+        // // display(dataSet100);
+        // System.out.println("Runtime with 100 data: " +runTime +" ns\n");
+
+        // // display(dataSet1000);
+        // startTime = System.nanoTime();
+        // selection_sort(dataSet1000);
+        // endTime = System.nanoTime();
+        // runTime = endTime - startTime;
+        // // display(dataSet1000);
+        // System.out.println("Runtime with 1000 data: " +runTime +" ns\n");
+
+        // // display(dataSet10000);
+        // startTime = System.nanoTime();
+        // selection_sort(dataSet10000);
+        // endTime = System.nanoTime();
+        // runTime = endTime - startTime;
+        // // display(dataSet10000);
+        // System.out.println("Runtime with 10000 data: " +runTime +" ns\n");
+
+        // // display(dataSet10);
+        // long startTime = System.nanoTime();
+        // insertion_sort(dataSet10);
+        // long endTime = System.nanoTime();
+        // long runTime = endTime - startTime;
+        // // display(dataSet10);
+        // System.out.println("Runtime with 10 data: " +runTime +" ns\n");
+        
+        // // display(dataSet100);
+        // startTime = System.nanoTime();
+        // insertion_sort(dataSet100);
+        // endTime = System.nanoTime();
+        // runTime = endTime - startTime;
+        // // display(dataSet100);
+        // System.out.println("Runtime with 100 data: " +runTime +" ns\n");
+
+        // // display(dataSet1000);
+        // startTime = System.nanoTime();
+        // insertion_sort(dataSet1000);
+        // endTime = System.nanoTime();
+        // runTime = endTime - startTime;
+        // // display(dataSet1000);
+        // System.out.println("Runtime with 1000 data: " +runTime +" ns\n");
+
+        // // display(dataSet10000);
+        // startTime = System.nanoTime();
+        // insertion_sort(dataSet10000);
+        // endTime = System.nanoTime();
+        // runTime = endTime - startTime;
+        // // display(dataSet10000);
+        // System.out.println("Runtime with 10000 data: " +runTime +" ns\n");
+
+        // // display(dataSet10);
+        // long startTime = System.nanoTime();
+        // insertion_sort(bestDataSet);
+        // long endTime = System.nanoTime();
+        // long runTime = endTime - startTime;
+        // // display(dataSet10);
+        // System.out.println("Runtime with best data: " +runTime +" ns\n");
+        
+        // // display(dataSet100);
+        // startTime = System.nanoTime();
+        // insertion_sort(dataSet100);
+        // endTime = System.nanoTime();
+        // runTime = endTime - startTime;
+        // // display(dataSet100);
+        // System.out.println("Runtime with average data: " +runTime +" ns\n");
+
+        // // display(dataSet1000);
+        // startTime = System.nanoTime();
+        // insertion_sort(worstDataSet);
+        // endTime = System.nanoTime();
+        // runTime = endTime - startTime;
+        // // display(dataSet1000);
+        // System.out.println("Runtime with worst data: " +runTime +" ns\n");
+
+        // // display(dataSet10);
+        // long startTime = System.nanoTime();
+        // selection_sort(bestDataSet);
+        // long endTime = System.nanoTime();
+        // long runTime = endTime - startTime;
+        // // display(dataSet10);
+        // System.out.println("Runtime with best data: " +runTime +" ns\n");
+        
+        // // display(dataSet100);
+        // startTime = System.nanoTime();
+        // selection_sort(dataSet100);
+        // endTime = System.nanoTime();
+        // runTime = endTime - startTime;
+        // // display(dataSet100);
+        // System.out.println("Runtime with average data: " +runTime +" ns\n");
+
+        // // display(dataSet1000);
+        // startTime = System.nanoTime();
+        // selection_sort(worstDataSet);
+        // endTime = System.nanoTime();
+        // runTime = endTime - startTime;
+        // // display(dataSet1000);
+        // System.out.println("Runtime with worst data: " +runTime +" ns\n");
+
+        // display(dataSet10);
+        long startTime = System.nanoTime();
+        bubble_sort(bestDataSet);
+        long endTime = System.nanoTime();
+        long runTime = endTime - startTime;
+        // display(dataSet10);
+        System.out.println("Runtime with best data: " +runTime +" ns\n");
+        
+        // display(dataSet100);
+        startTime = System.nanoTime();
+        bubble_sort(dataSet100);
+        endTime = System.nanoTime();
+        runTime = endTime - startTime;
+        // display(dataSet100);
+        System.out.println("Runtime with average data: " +runTime +" ns\n");
+
+        // display(dataSet1000);
+        startTime = System.nanoTime();
+        bubble_sort(worstDataSet);
+        endTime = System.nanoTime();
+        runTime = endTime - startTime;
+        // display(dataSet1000);
+        System.out.println("Runtime with worst data: " +runTime +" ns\n");
+
     }
 }
